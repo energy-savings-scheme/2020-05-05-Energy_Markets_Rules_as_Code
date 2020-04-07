@@ -110,7 +110,7 @@
 						<li>Better Rules Division - Community Gaming</li>
 						<li>Many examples in New Zealand and France</li>
 					</ul>
-					<></section>
+					</section>
 				<section>
 					<section data-background-iframe="https://test.nsw.digital/index.html" data-background-interactive>
 						<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
@@ -157,8 +157,8 @@ class counted_energy_savings(Variable):
 	value_type = float
 	entity = Building
 	definition_period = ETERNITY
-	label = 'The total Energy Savings for which ESCs have previously been' \
-			'created for the Implementation for the Current Rating Year.' \
+	label = 'The total Energy Savings for which ESCs have previously been' 
+			'created for the Implementation for the Current Rating Year.' 
 			' As defined in Clause 8.8.12.'
 
 	def formula(buildings, period, parameters):
@@ -188,14 +188,19 @@ class counted_energy_savings(Variable):
         ce_savings = buildings('counted_elec_savings', period)
         savings_calculated = buildings('type of savings, period')
         return select(
-          [savings_calculated == 'elec', savings_calculated == 'gas'], [elec_savings, gas_savings]
+          [savings_calculated == 'elec', savings_calculated == 'gas'], 
+		  [elec_savings, gas_savings]
           )</code></pre></div></div>
+					</section>
+					<section>
+					<p> Here's the difference in meanings. <p>
+												<img width="80%" alt="Down arrow" data-lazy-loaded="" data-src="img/counted_energy_ savings_definitions.jpg">
 					</section>
 				</section>
 				
 				<section>
 					<section>
-				<h3>Months Example</h3>
+				<h3>What's so special about months?</h3>
 					<p>A month is a common concept that appears everywhere in law and business.</p>
 					<p>It appears in the ESS a few times, such as in 8.8.8:</p>
 						<img width="100%" alt="Down arrow" data-lazy-loaded="" data-src="img/section_8_8_8.png">
@@ -204,17 +209,68 @@ class counted_energy_savings(Variable):
 					<p>But what exactly <em>is</em> a month?</p>
 					<p>Let's see what the law says.</p>
 					</section>
+					<section data-background-iframe="https://www.legislation.nsw.gov.au/#/view/act/1987/15/part2/sec21" data-background-interactive>
+						<div style="position: absolute; width: 40%; left: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<p>This is the definition of months in the Interpretations Act.</p>
+					</section>
+					<section>
+						<h3> The legal interpretation of this definition. </h3>
+						<p> So for (a), a month begins on 12:00:01am on 15 July, and ends on 11:59:59pm on 14 August. </p>
+						<p> For (b), a month begins on 12:00:01am on 31 August, and ends on 11:59:59pm on 30 September. </p>
+						<p> This functionality is difficult to replicate in code. </p>
+					</section>
+					<section>
+						<h3> What we did with this information. </h3>
+						<p> It takes writing approx. 40 lines of code to build a function to replicate this functionality - which we did. </p>
+						<p> There's an interesting finding we found, in codifying the strict legal interpretation of a common term and applying test cases to it. </p>
+					</section>
+					<section>
+						<p> Here's a test case that looks at 8.8.8, specifically at leap years.<p>
+						<img width="100%" alt="Down arrow" data-lazy-loaded="" data-src="img/months_example.jpg">	
+					</section>
+				</section>
+				
 				<section>
-		<h2>We've found that coding the rules is the easy part.</h2>
-</div></div>
-<div class="sl-block" data-block-type="text" data-name="text-6af045" data-block-id="15a30726b0a51815f839d6a9b0d541c9" style="height: auto; width: 600px; left: 180px; top: 350px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
-<p><span>But it’s only part of developing Better Rules.</span></p>
-</div></div></section><section data-id="4419045a069f7c1166f50ca0e035f2d1"></section><section data-id="4f45f9677c295d985af6e65bb686e681"><div class="sl-block" data-block-type="image" data-name="image-a290bc" data-block-id="cce64d12345dc58f5ede8db8cef1e63c" style="width: 806.4px; height: 386.714px; left: 80px; top: 173.286px;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1443" data-natural-height="692" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/1292106/images/7233274/RaC_policy_-_current_rule_change_process__4_.jpg"></div></div>
-<div class="sl-block" data-block-type="image" data-name="image-e72261" data-block-id="e984f00b5e0030938101cb7c4380bcf8" style="width: 806.4px; height: 518px; left: 76.8px; top: 91px;"><div class="sl-block-content" style="z-index: 11;"></div></div></section><section data-id="470a3ac4c77ad07787f8c425afe2686f"><div class="sl-block" data-block-type="image" data-name="image-62be41" data-block-id="e737952ef54088dadb0c32798379cda0" style="width: 938.372px; height: 533.277px; left: 10.814px; top: 83.3615px;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="959" data-natural-height="545" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/1292106/images/7233278/current_state_rules.png"></div></div></section><section data-id="389844b46ce08ebeb6952f0b411a64dd"><div class="sl-block" data-block-type="image" data-name="image-ce085a" data-block-id="43258bd2ca1e4a46ff0bfca21dafda69" style="width: 936.227px; height: 479px; left: 11.8865px; top: 96px;"><div class="sl-block-content" style="z-index: 10;"><img data-natural-width="989" data-natural-height="506" style="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/1292106/images/7233279/future_state_rules.png"></div></div></section></section>
-			</div>
-		</div>
-
-
+					<section>
+					<h2>We've found that coding the rules is the easy part.</h2>
+					<p><span>But it’s only part of developing Better Rules.</span></p>
+					</section>
+					<section>
+					<h3>Better Rules</h3>
+					<p>The Better Rules framework provides a templates for how we can do rules changes</p>
+					<p><em>and</em></p>
+					<p>Coding the rules will transform how the rules operate and are implemented.</p>
+					</section>
+					<section>
+					<h3>The current rule change process is very linear.</h3>
+					<p>Here's a simplified version of the current process.</p>
+						<img width="100%" alt="Down arrow" data-lazy-loaded="" data-src="img/current_rule_change_process.jpg">
+					</section>
+					<section>
+						<img width="85%" alt="Down arrow" data-lazy-loaded="" data-src="img/current_state_rules.png">
+					<p><span style="position: left; font-size:0.3em"><a href="https://www.digital.govt.nz/dmsdocument/95-better-rules-for-government-discovery-report/html" target="_blank">https://www.digital.govt.nz/dmsdocument/95-better-rules-for-government-discovery-report/html</a></span></p>
+					<p><span style="position: left; font-size:0.3em"><a href="https://trends.oecd-opsi.org/embracing-innovation-in-government-global-trends-2019.pdf" target="_blank">https://trends.oecd-opsi.org/embracing-innovation-in-government-global-trends-2019.pdf</a></span></p>
+					</section>
+					<section>
+						<img width="85%" alt="Down arrow" data-lazy-loaded="" data-src="img/future_state_rules.png">
+					<p><span style="position: left; font-size:0.3em"><a href="https://trends.oecd-opsi.org/embracing-innovation-in-government-global-trends-2019.pdf" target="_blank">https://trends.oecd-opsi.org/embracing-innovation-in-government-global-trends-2019.pdf</a></span></p>					
+					</section>
+					<section>
+					<h3>The end goal is to use an integrated Better Rules approach to build a better end product.</h3>
+						<img width="85%" alt="Down arrow" data-lazy-loaded="" data-src="img/better_rules_process.jpg">
+					</section>
+					<section>
+					<h3>The key is integrating the perspectives and knowledge of <strong><em>different</em></strong> experts to ensure the rules deliver the best outcome for the user, following rule implementation.</h3>
+					</section>
+				</section>
+				
+				<section>
+				<h3>What's next?<h3>
+				<p span style="font-size:0.7em">Developing a prototype for Rules as Code delivery</p>
+				<p span style="font-size:0.7em">Testing this prototype with NABERS stakeholders</p>
+				<p span style="font-size:0.7em">Begin scaling this approach throughout the existing ESS Rule</p>
+				<p span style="font-size:0.7em">Integrate the Better Rules approach into Safeguard development and delivery</p>
+				</section>
 		<script src="js/reveal.js"></script>
 
 		<script>
